@@ -33,14 +33,13 @@ const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     return (
-        <div className={darkMode ? 'w-full h-full' : 'w-full h-full bg-[#fafafa]'}>
-            {darkMode ? (
-                <div className='absolute w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>
-            ) : (
-                <div className='absolute w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
-            )}
-
+        <div className={darkMode ? 'w-full h-full -z-10' : 'w-full h-full bg-[#fafafa] -z-10'}>
             <TodoList darkMode={darkMode} data={DUMMY_DATA} />
+            {darkMode ? (
+                <div className='absolute top-0 w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>
+            ) : (
+                <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
+            )}
         </div>
     );
 };
