@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 import LightCard from './UI/LightCard';
@@ -8,6 +8,12 @@ import IconCheck from '../../public/images/icon-check.svg';
 import IconCross from '../../public/images/icon-cross.svg';
 
 const TodoItem = (props) => {
+    const [isSelected, setIsSelected] = useState(false);
+
+    const onClickHandler = (e) => {
+        setIsSelected((prevState) => !prevState);
+    };
+
     return (
         <React.Fragment>
             {props.darkMode ? (
@@ -21,7 +27,25 @@ const TodoItem = (props) => {
             ) : (
                 <LightCard>
                     <div className='flex items-center p-5 border-b-2 border-[#d2d3db]'>
-                        <div className='rounded-full border-2 border-[#e4e5f1] w-8 h-8 mr-4'></div>
+                        {isSelected && (
+                            <div
+                                className='rounded-full border-2 border-[#62c34a] w-8 h-8 mr-4 bg-[#62c34a] cursor-pointer'
+                                onClick={onClickHandler}
+                            >
+                                <Image
+                                    src={IconCheck}
+                                    width={18}
+                                    height={18}
+                                    className='mx-auto my-2'
+                                />
+                            </div>
+                        )}
+                        {!isSelected && (
+                            <div
+                                className='rounded-full border-2 border-[#e4e5f1] w-8 h-8 mr-4 cursor-pointer'
+                                onClick={onClickHandler}
+                            ></div>
+                        )}
 
                         <p className='text-sm'>{props.children}</p>
                         <Image
