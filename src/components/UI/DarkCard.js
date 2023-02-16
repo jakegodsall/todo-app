@@ -1,5 +1,7 @@
 import React from 'react';
 
-const DarkCard = () => {};
+const DarkCard = (props) => {
+    return <div>{props.children}</div>;
+};
 
 export default DarkCard;

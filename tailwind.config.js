@@ -7,6 +7,7 @@ module.exports = {
         fontFamily: {
             'josefin-sands': '["Josefin Sans", "sans-serif"]',
         },
+        colors: {},
     },
     plugins: [],
 };

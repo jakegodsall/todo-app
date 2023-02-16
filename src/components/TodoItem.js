@@ -1,16 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 
+import LightCard from './UI/LightCard';
+import DarkCard from './UI/DarkCard';
+
 import IconCheck from '../../public/images/icon-check.svg';
 import IconCross from '../../public/images/icon-cross.svg';
 
-const TodoItem = ({ children }) => {
+const TodoItem = (props) => {
     return (
-        <div className='flex items-center'>
-            <Image src={IconCheck} width={30} height={30} />
-            <p>{children}</p>
-            <Image src={IconCross} />
-        </div>
+        <DarkCard>
+            <div className='flex items-center'>
+                <Image src={IconCheck} width={30} height={30} alt='toggle task completed' />
+                <p className='text-sm'>{props.children}</p>
+                <Image src={IconCross} className='ml-auto' alt='remove task' />
+            </div>
+        </DarkCard>
     );
 };
 
