@@ -50,7 +50,9 @@ const TodoItem = (props) => {
                             ></div>
                         )}
 
-                        <p className='text-sm'>{props.children}</p>
+                        <p className={isSelected ? 'text-sm line-through' : 'text-sm'}>
+                            {props.children}
+                        </p>
                         <Image
                             src={IconCross}
                             className='ml-auto cursor-pointer'
