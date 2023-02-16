@@ -7,7 +7,7 @@ const TodoList = (props) => {
         <div className='flex flex-col'>
             {props.data.map((el, idx) => {
                 return (
-                    <TodoItem key={idx} complete={el.complete}>
+                    <TodoItem key={idx} complete={el.complete} darkMode={props.darkMode}>
                         {el.content}
                     </TodoItem>
                 );
