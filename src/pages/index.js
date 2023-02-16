@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Header from '@/components/Header';
 import TodoList from '@/components/TodoList';
 
 let DUMMY_DATA = [
@@ -58,8 +59,17 @@ const Home = () => {
         });
     };
 
+    const getThemeHandler = () => {
+        setDarkMode((prevState) => !prevState);
+    };
+
     return (
-        <div className={darkMode ? 'w-full h-full -z-10' : 'w-full h-full bg-[#fafafa] -z-10'}>
+        <div
+            className={
+                darkMode ? 'w-full h-full -z-10 bg-[#161722]' : 'w-full h-full bg-[#fafafa] -z-10'
+            }
+        >
+            <Header darkMode={darkMode} getTheme={getThemeHandler} />
             <TodoList
                 darkMode={darkMode}
                 data={DUMMY_DATA}
