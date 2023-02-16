@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import TodoList from '@/components/TodoList';
 
@@ -39,8 +39,6 @@ const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     const getSelectedHandler = (idOfSelected) => {
-        console.log('from index.js', idOfSelected);
-
         DUMMY_DATA = DUMMY_DATA.map((el) => {
             if (el.id === idOfSelected) {
                 return {
@@ -52,13 +50,22 @@ const Home = () => {
                 return el;
             }
         });
+    };
 
-        console.log(DUMMY_DATA);
+    const getDeletedHandler = (idOfDeleted) => {
+        DUMMY_DATA = DUMMY_DATA.filter((el) => {
+            return el.id !== idOfDeleted;
+        });
     };
 
     return (
         <div className={darkMode ? 'w-full h-full -z-10' : 'w-full h-full bg-[#fafafa] -z-10'}>
-            <TodoList darkMode={darkMode} data={DUMMY_DATA} getSelected={getSelectedHandler} />
+            <TodoList
+                darkMode={darkMode}
+                data={DUMMY_DATA}
+                getSelected={getSelectedHandler}
+                getDeleted={getDeletedHandler}
+            />
             {darkMode ? (
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>
             ) : (

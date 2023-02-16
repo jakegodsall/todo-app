@@ -7,6 +7,10 @@ const TodoList = (props) => {
         props.getSelected(idOfSelected);
     };
 
+    const getDeletedHandler = (idOfDeleted) => {
+        props.getDeleted(idOfDeleted);
+    };
+
     return (
         <div className='flex flex-col relative z-10 bg-[#fff] mt-40 mx-5 rounded-md'>
             <ul>
@@ -17,6 +21,7 @@ const TodoList = (props) => {
                                 complete={el.complete}
                                 darkMode={props.darkMode}
                                 getSelected={getSelectedHandler}
+                                getDeleted={getDeletedHandler}
                                 id={el.id}
                             >
                                 {el.content}

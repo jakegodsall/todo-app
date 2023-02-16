@@ -16,6 +16,10 @@ const TodoItem = (props) => {
         props.getSelected(props.id);
     };
 
+    const onDeleteHandler = () => {
+        props.getDeleted(props.id);
+    };
+
     return (
         <React.Fragment>
             {props.darkMode ? (
@@ -57,6 +61,7 @@ const TodoItem = (props) => {
                             src={IconCross}
                             className='ml-auto cursor-pointer'
                             alt='remove task'
+                            onClick={onDeleteHandler}
                         />
                     </div>
                 </LightCard>
