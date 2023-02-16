@@ -5,13 +5,17 @@ import TodoItem from './TodoItem';
 const TodoList = (props) => {
     return (
         <div className='flex flex-col'>
-            {props.data.map((el, idx) => {
-                return (
-                    <TodoItem key={idx} complete={el.complete} darkMode={props.darkMode}>
-                        {el.content}
-                    </TodoItem>
-                );
-            })}
+            <ul>
+                {props.data.map((el, idx) => {
+                    return (
+                        <li className='' key={idx}>
+                            <TodoItem complete={el.complete} darkMode={props.darkMode}>
+                                {el.content}
+                            </TodoItem>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 };

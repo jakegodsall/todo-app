@@ -34,6 +34,12 @@ const Home = () => {
 
     return (
         <div>
+            {darkMode ? (
+                <div className='absolute w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
+            ) : (
+                <div className='absolute w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>
+            )}
+
             <TodoList darkMode={darkMode} data={DUMMY_DATA} />
         </div>
     );
