@@ -8,10 +8,12 @@ import IconCheck from '../../public/images/icon-check.svg';
 import IconCross from '../../public/images/icon-cross.svg';
 
 const TodoItem = (props) => {
-    const [isSelected, setIsSelected] = useState(false);
+    const [isSelected, setIsSelected] = useState(props.complete);
 
     const onClickHandler = (e) => {
         setIsSelected((prevState) => !prevState);
+
+        props.getSelected(props.id);
     };
 
     return (
@@ -37,6 +39,7 @@ const TodoItem = (props) => {
                                     width={18}
                                     height={18}
                                     className='mx-auto my-2'
+                                    alt='toggle completed'
                                 />
                             </div>
                         )}
