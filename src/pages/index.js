@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Header from '@/components/Header';
 import TodoList from '@/components/TodoList';
@@ -8,7 +8,7 @@ let DUMMY_DATA = [
     {
         id: 1,
         content: 'Complete online JavaScript course',
-        complete: true,
+        complete: false,
     },
     {
         id: 2,
@@ -39,25 +39,29 @@ let DUMMY_DATA = [
 
 const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const [data, setData] = useState(DUMMY_DATA);
 
     const getSelectedHandler = (idOfSelected) => {
-        DUMMY_DATA = DUMMY_DATA.map((el) => {
-            if (el.id === idOfSelected) {
-                return {
-                    id: el.id,
-                    content: el.content,
-                    complete: !el.complete,
-                };
-            } else {
-                return el;
-            }
+        setData((prevData) => {
+            prevData = prevData.map((el) => {
+                if (el.id === idOfSelected) {
+                    return {
+                        id: el.id,
+                        content: el.content,
+                        complete: !el.complete,
+                    };
+                } else {
+                    return el;
+                }
+            });
+            return prevData;
         });
     };
 
     const getDeletedHandler = (idOfDeleted) => {
-        DUMMY_DATA = DUMMY_DATA.filter((el) => {
-            return el.id !== idOfDeleted;
-        });
+        setData((prevData) => [
+            ...prevData.filter((el) => parseInt(el.id) !== parseInt(idOfDeleted)),
+        ]);
     };
 
     const getThemeHandler = () => {
@@ -75,7 +79,7 @@ const Home = () => {
             <Header darkMode={darkMode} getTheme={getThemeHandler} />
             <TodoList
                 darkMode={darkMode}
-                data={DUMMY_DATA}
+                data={data}
                 getSelected={getSelectedHandler}
                 getDeleted={getDeletedHandler}
             />
