@@ -40,6 +40,7 @@ let DUMMY_DATA = [
 const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [data, setData] = useState(DUMMY_DATA);
+    const [filteredData, setFilteredData] = useState(data);
 
     const getSelectedHandler = (idOfSelected) => {
         setData((prevData) => {
@@ -68,6 +69,10 @@ const Home = () => {
         setDarkMode((prevState) => !prevState);
     };
 
+    const filterHandler = (value) => {
+        setFilteredData((prevData) => {});
+    };
+
     return (
         <div
             className={
@@ -88,7 +93,7 @@ const Home = () => {
             ) : (
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
             )}
-            <FilterBar darkMode={darkMode} />
+            <FilterBar darkMode={darkMode} getFilter={filterHandler} />
         </div>
     );
 };

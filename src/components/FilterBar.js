@@ -4,6 +4,10 @@ import LightCard from './UI/LightCard';
 import DarkCard from './UI/DarkCard';
 
 const FilterBar = (props) => {
+    const onClickHandler = (e) => {
+        props.getFilter(e.target.value);
+    };
+
     return (
         <React.Fragment>
             {props.darkMode ? (
@@ -26,6 +30,8 @@ const FilterBar = (props) => {
                                     name='filter'
                                     id='all'
                                     className='peer hidden'
+                                    onClick={onClickHandler}
+                                    value='all'
                                 ></input>
                                 <label
                                     htmlFor='all'
@@ -40,6 +46,8 @@ const FilterBar = (props) => {
                                     name='filter'
                                     id='active'
                                     className='peer hidden'
+                                    onClick={onClickHandler}
+                                    value='active'
                                 ></input>
                                 <label
                                     htmlFor='active'
@@ -54,6 +62,8 @@ const FilterBar = (props) => {
                                     name='filter'
                                     id='completed'
                                     className='peer hidden'
+                                    onClick={onClickHandler}
+                                    value='completed'
                                 ></input>
                                 <label
                                     htmlFor='completed'
