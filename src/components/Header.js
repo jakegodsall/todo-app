@@ -10,18 +10,22 @@ const Header = (props) => {
     };
 
     return (
-        <header className='relative z-10 w-full flex justify-between items-center'>
+        <header className='relative z-10 w-full flex justify-between items-center p-5'>
             <h1
                 className={
                     props.darkMode
-                        ? 'uppercase text-3xl tracking-widest font-bold'
+                        ? 'uppercase text-3xl tracking-[1rem] font-bold'
                         : 'uppercase text-3xl tracking-[1rem] font-bold text-[#fff]'
                 }
             >
                 todo
             </h1>
-            {props.darkMode && <Image src={SunIcon} onClick={onClickHandler} />}
-            {!props.darkMode && <Image src={MoonIcon} onClick={onClickHandler} />}
+            {props.darkMode && (
+                <Image src={SunIcon} onClick={onClickHandler} className='cursor-pointer' />
+            )}
+            {!props.darkMode && (
+                <Image src={MoonIcon} onClick={onClickHandler} className='cursor-pointer' />
+            )}
         </header>
     );
 };
