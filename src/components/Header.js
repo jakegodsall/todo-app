@@ -21,10 +21,20 @@ const Header = (props) => {
                 todo
             </h1>
             {props.darkMode && (
-                <Image src={SunIcon} onClick={onClickHandler} className='cursor-pointer' />
+                <Image
+                    src={SunIcon}
+                    alt='select light mode'
+                    onClick={onClickHandler}
+                    className='cursor-pointer'
+                />
             )}
             {!props.darkMode && (
-                <Image src={MoonIcon} onClick={onClickHandler} className='cursor-pointer' />
+                <Image
+                    src={MoonIcon}
+                    alt='select dark mode'
+                    onClick={onClickHandler}
+                    className='cursor-pointer'
+                />
             )}
         </header>
     );

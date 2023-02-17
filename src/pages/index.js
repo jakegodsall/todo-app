@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Header from '@/components/Header';
 import TodoList from '@/components/TodoList';
+import FilterBar from '@/components/FilterBar';
 
 let DUMMY_DATA = [
     {
@@ -66,7 +67,9 @@ const Home = () => {
     return (
         <div
             className={
-                darkMode ? 'w-full h-full -z-10 bg-[#161722]' : 'w-full h-full bg-[#fafafa] -z-10'
+                darkMode
+                    ? 'w-full h-full flex flex-col items-center -z-10 bg-[#161722]'
+                    : 'w-full h-full flex flex-col items-center bg-[#fafafa] -z-10'
             }
         >
             <Header darkMode={darkMode} getTheme={getThemeHandler} />
@@ -81,6 +84,7 @@ const Home = () => {
             ) : (
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
             )}
+            <FilterBar darkMode={darkMode} />
         </div>
     );
 };
