@@ -74,8 +74,6 @@ const Home = () => {
     };
 
     const onClearCompleted = () => {
-        console.log('from index');
-        console.log(data.filter((el) => !el.complete));
         setData((prevData) => {
             return prevData.filter((el) => !el.complete);
         });
@@ -85,10 +83,15 @@ const Home = () => {
         <div
             className={
                 darkMode
-                    ? 'w-full h-full flex flex-col items-center -z-10 bg-[#161722]'
-                    : 'w-full h-full flex flex-col items-center bg-[#fafafa] -z-10'
+                    ? 'w-full h-full flex flex-col items-center bg-[#161722]'
+                    : 'w-full h-full flex flex-col items-center bg-[#fafafa]'
             }
         >
+            {darkMode ? (
+                <div className='absolute top-0 w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark -z-10'></div>
+            ) : (
+                <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light -z-10'></div>
+            )}
             <Header darkMode={darkMode} getTheme={getThemeHandler} />
             <TodoList
                 darkMode={darkMode}
@@ -97,11 +100,7 @@ const Home = () => {
                 getDeleted={getDeletedHandler}
                 clearCompleted={onClearCompleted}
             />
-            {darkMode ? (
-                <div className='absolute top-0 w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>
-            ) : (
-                <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light'></div>
-            )}
+
             <FilterBar darkMode={darkMode} getFilter={filterHandler} />
         </div>
     );

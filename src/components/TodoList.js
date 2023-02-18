@@ -30,7 +30,7 @@ const TodoList = (props) => {
     };
 
     return (
-        <div className='flex flex-col relative z-10 mt-40 mx-5 rounded-md'>
+        <React.Fragment>
             {props.darkMode ? (
                 <DarkCard>
                     <ul>
@@ -53,7 +53,7 @@ const TodoList = (props) => {
                 </DarkCard>
             ) : (
                 <LightCard>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col w-full'>
                         <ul>
                             {props.data.map((el, idx) => {
                                 return (
@@ -71,14 +71,14 @@ const TodoList = (props) => {
                                 );
                             })}
                         </ul>
-                        <div className='flex justify-between items-center'>
+                        <div className='flex justify-between items-center text-[#d2d3db] text-sm font-bold px-2 pt-5 pb-2'>
                             <p>{getTotal(props.data)} items left</p>
                             <button onClick={onClearCompleted}>Clear Completed</button>
                         </div>
                     </div>
                 </LightCard>
             )}
-        </div>
+        </React.Fragment>
     );
 };
 
