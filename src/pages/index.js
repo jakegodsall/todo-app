@@ -73,6 +73,14 @@ const Home = () => {
         setFilteredData((prevData) => {});
     };
 
+    const onClearCompleted = () => {
+        console.log('from index');
+        console.log(data.filter((el) => !el.complete));
+        setData((prevData) => {
+            return prevData.filter((el) => !el.complete);
+        });
+    };
+
     return (
         <div
             className={
@@ -87,6 +95,7 @@ const Home = () => {
                 data={data}
                 getSelected={getSelectedHandler}
                 getDeleted={getDeletedHandler}
+                clearCompleted={onClearCompleted}
             />
             {darkMode ? (
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-dark bg-no-repeat bg-cover lg:bg-desktop-dark'></div>

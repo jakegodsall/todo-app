@@ -25,6 +25,10 @@ const TodoList = (props) => {
         return total;
     };
 
+    const onClearCompleted = () => {
+        props.clearCompleted(true);
+    };
+
     return (
         <div className='flex flex-col relative z-10 mt-40 mx-5 rounded-md'>
             {props.darkMode ? (
@@ -69,7 +73,7 @@ const TodoList = (props) => {
                         </ul>
                         <div className='flex justify-between items-center'>
                             <p>{getTotal(props.data)} items left</p>
-                            <button>Clear Completed</button>
+                            <button onClick={onClearCompleted}>Clear Completed</button>
                         </div>
                     </div>
                 </LightCard>
