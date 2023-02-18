@@ -29,12 +29,21 @@ const TodoList = (props) => {
         props.clearCompleted(true);
     };
 
+    let data = [];
+    if (props.filter === 'all') {
+        data = props.data;
+    } else if (props.filter === 'active') {
+        data = props.data.filter((el) => !el.complete);
+    } else if (props.filter === 'completed') {
+        data = props.data.filter((el) => el.complete);
+    }
+
     return (
         <React.Fragment>
             {props.darkMode ? (
                 <DarkCard>
                     <ul>
-                        {props.data.map((el, idx) => {
+                        {data.map((el, idx) => {
                             return (
                                 <li className='' key={idx}>
                                     <TodoItem
@@ -55,7 +64,7 @@ const TodoList = (props) => {
                 <LightCard>
                     <div className='flex flex-col w-full'>
                         <ul>
-                            {props.data.map((el, idx) => {
+                            {data.map((el, idx) => {
                                 return (
                                     <li className='' key={idx}>
                                         <TodoItem

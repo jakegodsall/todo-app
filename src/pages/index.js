@@ -40,7 +40,7 @@ let DUMMY_DATA = [
 const Home = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [data, setData] = useState(DUMMY_DATA);
-    const [filteredData, setFilteredData] = useState(data);
+    const [filter, setFilter] = useState('all');
 
     const getSelectedHandler = (idOfSelected) => {
         setData((prevData) => {
@@ -70,7 +70,7 @@ const Home = () => {
     };
 
     const filterHandler = (value) => {
-        setFilteredData((prevData) => {});
+        setFilter(value);
     };
 
     const onClearCompleted = () => {
@@ -99,6 +99,7 @@ const Home = () => {
                 getSelected={getSelectedHandler}
                 getDeleted={getDeletedHandler}
                 clearCompleted={onClearCompleted}
+                filter={filter}
             />
 
             <FilterBar darkMode={darkMode} getFilter={filterHandler} />
