@@ -32,10 +32,11 @@ const FilterBar = (props) => {
                                     className='peer hidden'
                                     onClick={onClickHandler}
                                     value='all'
+                                    defaultChecked={true}
                                 ></input>
                                 <label
                                     htmlFor='all'
-                                    className='peer-checked:text-[#3a7bfd] text-lg'
+                                    className='peer-checked:text-[#3a7bfd] text-lg cursor-pointer transform-all duration-300'
                                 >
                                     All
                                 </label>
@@ -51,7 +52,7 @@ const FilterBar = (props) => {
                                 ></input>
                                 <label
                                     htmlFor='active'
-                                    className='peer-checked:text-[#3a7bfd] text-lg'
+                                    className='peer-checked:text-[#3a7bfd] text-lg cursor-pointer transform-all duration-300'
                                 >
                                     Active
                                 </label>
@@ -67,7 +68,7 @@ const FilterBar = (props) => {
                                 ></input>
                                 <label
                                     htmlFor='completed'
-                                    className='peer-checked:text-[#3a7bfd] text-lg'
+                                    className='peer-checked:text-[#3a7bfd] text-lg cursor-pointer transform-all duration-300'
                                 >
                                     Completed
                                 </label>
