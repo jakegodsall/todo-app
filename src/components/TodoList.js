@@ -13,6 +13,18 @@ const TodoList = (props) => {
         props.getDeleted(idOfDeleted);
     };
 
+    const getTotal = (data) => {
+        console.log(data);
+        const total = data.reduce((total, element) => {
+            if (!element.complete) {
+                return (total += 1);
+            } else {
+                return total;
+            }
+        }, 0);
+        return total;
+    };
+
     return (
         <div className='flex flex-col relative z-10 mt-40 mx-5 rounded-md'>
             {props.darkMode ? (
@@ -37,23 +49,29 @@ const TodoList = (props) => {
                 </DarkCard>
             ) : (
                 <LightCard>
-                    <ul>
-                        {props.data.map((el, idx) => {
-                            return (
-                                <li className='' key={idx}>
-                                    <TodoItem
-                                        complete={el.complete}
-                                        darkMode={props.darkMode}
-                                        getSelected={getSelectedHandler}
-                                        getDeleted={getDeletedHandler}
-                                        id={el.id}
-                                    >
-                                        {el.content}
-                                    </TodoItem>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <div className='flex flex-col'>
+                        <ul>
+                            {props.data.map((el, idx) => {
+                                return (
+                                    <li className='' key={idx}>
+                                        <TodoItem
+                                            complete={el.complete}
+                                            darkMode={props.darkMode}
+                                            getSelected={getSelectedHandler}
+                                            getDeleted={getDeletedHandler}
+                                            id={el.id}
+                                        >
+                                            {el.content}
+                                        </TodoItem>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                        <div className='flex justify-between items-center'>
+                            <p>{getTotal(props.data)} items left</p>
+                            <button>Clear Completed</button>
+                        </div>
+                    </div>
                 </LightCard>
             )}
         </div>
