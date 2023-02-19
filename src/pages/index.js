@@ -36,16 +36,6 @@ let DUMMY_DATA = [
         content: 'Complete Todo App on Frontend Mentor',
         complete: false,
     },
-    {
-        id: 7,
-        content: 'Drink tea with Mushroomia',
-        complete: false,
-    },
-    {
-        id: 8,
-        content: 'Jestem Dima, i jestem wierd',
-        complete: true,
-    },
 ];
 
 const Home = () => {
@@ -90,6 +80,19 @@ const Home = () => {
         });
     };
 
+    const newTodoHandler = (value) => {
+        setData((prevData) => {
+            return [
+                ...prevData,
+                {
+                    id: prevData.length + 1,
+                    content: value,
+                    complete: false,
+                },
+            ];
+        });
+    };
+
     return (
         <div
             className={
@@ -104,7 +107,7 @@ const Home = () => {
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light -z-10'></div>
             )}
             <Header darkMode={darkMode} getTheme={getThemeHandler} />
-            <TodoInput />
+            <TodoInput newTodo={newTodoHandler} />
             <TodoList
                 darkMode={darkMode}
                 data={data}
