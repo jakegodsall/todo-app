@@ -66,7 +66,7 @@ const TodoList = (props) => {
                         <ul>
                             {data.map((el, idx) => {
                                 return (
-                                    <li className='' key={idx}>
+                                    <li className='' key={el.id}>
                                         <TodoItem
                                             complete={el.complete}
                                             darkMode={props.darkMode}
