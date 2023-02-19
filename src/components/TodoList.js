@@ -80,7 +80,7 @@ const TodoList = (props) => {
                                 );
                             })}
                         </ul>
-                        <div className='flex justify-between items-center text-[#d2d3db] text-sm font-bold px-2 pt-5 pb-2'>
+                        <div className='flex justify-between items-center text-[#d2d3db] text-sm font-bold px-8 pt-5 pb-2'>
                             <p>{getTotal(props.data)} items left</p>
                             <button onClick={onClearCompleted}>Clear Completed</button>
                         </div>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import TodoList from '@/components/TodoList';
 import FilterBar from '@/components/FilterBar';
+import TodoInput from '@/components/TodoInput';
 
 let DUMMY_DATA = [
     {
@@ -34,6 +35,16 @@ let DUMMY_DATA = [
         id: 6,
         content: 'Complete Todo App on Frontend Mentor',
         complete: false,
+    },
+    {
+        id: 7,
+        content: 'Drink tea with Mushroomia',
+        complete: false,
+    },
+    {
+        id: 8,
+        content: 'Jestem Dima, i jestem wierd',
+        complete: true,
     },
 ];
 
@@ -93,6 +104,7 @@ const Home = () => {
                 <div className='absolute top-0 w-full h-[25vh] bg-mobile-light bg-no-repeat bg-cover lg:bg-desktop-light -z-10'></div>
             )}
             <Header darkMode={darkMode} getTheme={getThemeHandler} />
+            <TodoInput />
             <TodoList
                 darkMode={darkMode}
                 data={data}

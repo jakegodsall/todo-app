@@ -3,7 +3,12 @@
 module.exports = {
     content: ['./src/**/*.js'],
     theme: {
-        extend: {},
+        extend: {
+            gradientColorStops: {
+                stop1: '#57ddff',
+                stop2: '#c058f3',
+            },
+        },
         fontFamily: {
             'josefin-sands': '["Josefin Sans", "sans-serif"]',
         },

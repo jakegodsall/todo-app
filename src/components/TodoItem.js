@@ -32,16 +32,16 @@ const TodoItem = (props) => {
                 <div className='flex items-center p-5 border-b-2 border-[#d2d3db]'>
                     {isSelected && (
                         <div
-                            className='rounded-full border-2 border-[#62c34a] w-8 h-8 mr-4 bg-[#62c34a] cursor-pointer'
+                            className='rounded-full border-2 w-8 h-8 mr-4 cursor-pointer bg-green'
                             onClick={onClickHandler}
                         >
-                            <Image
+                            {/* <Image
                                 src={IconCheck}
                                 width={18}
                                 height={18}
                                 className='mx-auto my-2'
                                 alt='toggle completed'
-                            />
+                            /> */}
                         </div>
                     )}
                     {!isSelected && (
