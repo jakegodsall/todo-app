@@ -4,9 +4,12 @@ import LightCard from './UI/LightCard';
 
 const TodoInput = (props) => {
     const onSubmitHandler = (e) => {
+        // prevent default form behaviour
         e.preventDefault();
-        const enteredValue = e.currentTarget.elements.todo.value;
-        props.newTodo(enteredValue);
+        // pass entered value to parent
+        props.newTodo(e.currentTarget.elements.todo.value);
+        // reset entered value
+        e.currentTarget.elements.todo.value = '';
     };
 
     return (
